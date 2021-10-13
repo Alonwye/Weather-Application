@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>She Codes Plus</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form id="citySearch" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Canberra"
+                  class="form-control"
+                  id="searchCity"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary btn-md"
+                />
+              </div>
+            </div>
+          </form>
+          <div class="weatherSummary">
+            <h1 class="searchedCity" id="city"></h1>
+            <ul>
+              <li>Last updated: <span id="date"></span></li>
+              <li id="description"></li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="current-temperature">
+                <img src="" alt="Clear" id="icon" class="float-left" />
+                <div class="float-left">
+                  <strong id="temperature"></strong
+                  ><span class="units">
+                    °<a href="#" id="celcius-link">C</a> | °<a
+                      href="#"
+                      id="fahrenheit-link"
+                      >F</a
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> m/h</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="submit"
+                class="btn btn-primary btn-sm"
+                id="currentLocation"
+                value="Current Location"
+              />
+            </div>
+          </div>
+
+          <!--                <div class="form-check form-switch" align="center">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+        <label class="form-check-label" for="flexSwitchCheckChecked">Celcius (on) / Fahrenheit (off)</label>
+      </div>
+
+      <div class="container">
+          <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>⛅</h1>
+                        <h5 class="card-title">Today</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">12/09</h6>
+                        <p>Cloudy
+                            <br/>
+                            <span class="temp-low">10</span>° / <span class="temp-high">23</span>°
+                        </p>
+                      </div>
+                    </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>🌩</h1>
+                        <h5 class="card-title">Monday</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">13/09</h6>
+                        <p>Stormy
+                            <br/>
+                            <span class="temp-low">8</span>° / <span class="temp-high">20</span>°
+                        </p>
+                      </div>
+                    </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                  <div class="card-body">
+                      <h1>☀</h1>
+                    <h5 class="card-title">Tuesday</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">14/09</h6>
+                    <p>Sunny
+                        <br/>
+                        <span class="temp-low">11</span>° / <span class="temp-high">25</span>°
+                    </p>
+                    </div>
+                  </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>🌤</h1>
+                        <h5 class="card-title">Wednesday</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">15/09</h6>
+                        <p>Partially Cloudy
+                            <br/>
+                            <span class="temp-low">10</span>° / <span class="temp-high">20</span>°
+                        </p>
+                      </div>
+                    </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>🌤</h1>
+                        <h5 class="card-title">Thursday</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">16/09</h6>
+                        <p>Partially Cloudy
+                            <br/>
+                            <span class="temp-low">7</span>° / <span class="temp-high">19</span>°
+                        </p>
+                      </div>
+                    </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>🌩</h1>
+                        <h5 class="card-title">Friday</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">17/09</h6>
+                        <p>Stormy
+                            <br/>
+                            <span class="temp-low">6</span>° / <span class="temp-high">21</span>°
+                        </p>
+                      </div>
+                    </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>☀</h1>
+                        <h5 class="card-title">Saturday</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">18/09</h6>
+                        <p>Sunny
+                            <br/>
+                            <span class="temp-low">12</span>° / <span class="temp-high">24</span>°
+                        </p>
+                      </div>
+                    </div>
+              </div>
+          </div>
+        </div>
+    </p>-->
+        </div>
+        <a href="https://github.com/Alonwye/Weather-app">Open-source code</a> by
+        Amanda Wolf
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
