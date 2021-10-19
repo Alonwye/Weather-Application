@@ -63,3 +63,21 @@ li:first-letter {
   font-size: 16px;
   top: -34px;
 }
+
+.forecast-temperature {
+  padding: 20px;
+  text-align: center;
+}
+
+.forecast-temperature img {
+  height: 50px;
+  width: 50px;
+}
+
+.forecast-temp-low {
+  color: rgb(15, 24, 150);
+}
+
+.forecast-description:first-letter {
+  text-transform: capitalize;
+}
